@@ -52,6 +52,7 @@
 	<action name=""  class="org.will.app.action.InitialFirstPageAction">
 		<result>/WEB-INF/content/Initial.jsp</result>	
 	</action>
+	
 	<action name="*">
 		<result>/WEB-INF/content/{1}.jsp</result>	
 	</action>
