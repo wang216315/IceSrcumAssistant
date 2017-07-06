@@ -18,6 +18,7 @@
 		<td><input type="submit" value="批量上传"/>	</td>
 	</tr>
 	</form>-->
+		
 	<s:form action="UploadEmployIDRelation"	enctype="multipart/form-data" method="POST" >
 	<tr>选择导入Excel:</tr>
 	<tr>		
