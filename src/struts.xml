@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="GBK"?>
+
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">	
+<struts>
+	<!-- 用最简单的组件UI主题、，不会添加任何tr，td来干扰html代码 -->
+	<constant name="struts.ui.theme" value="simple" />
+	<!-- 设置该应用使用的字符集 -->
+	<constant name="struts.i18n.encoding" value="GBK"/>
+	<package name="lee" extends="struts-default">
+		<!-- 配置处理文件上传的Action -->
+	<action name="CountTaskTimeForEachPerson" class="org.will.app.action.CountTaskTimeForEachPersonAction">
+		<result>/WEB-INF/content/ShowTaskTimeForPerson.jsp</result>	
+		
+	</action>
+	<!-- 导出所有US -->
+	<action name="OutputStoryList" class="org.will.app.action.OutputStoryListAction">
+		<result>/WEB-INF/content/ShowStories.jsp</result>			
+	</action>
+	<!-- 上传员工ID关系映射excel -->
+	<action name="UploadEmployIDRelation" class="org.will.app.action.UploadEmployeeIDRelationAction">
+		<result>/WEB-INF/content/EmployeesList.jsp</result>			
+	</action>
+	
+	
+		<!-- 上传员工ID关系映射excel -->
+	<action name="Initial" class="org.will.app.action.InitialFirstPageAction">
+		<result>/WEB-INF/content/Initial.jsp</result>			
+	</action>
+	
+			<!-- 上传员工ID关系映射excel -->
+	<action name="PMOData" class="org.will.app.action.PMODataOutputAction">
+		<result>/WEB-INF/content/ShowPMOData.jsp</result>			
+	</action>
+	
+	<action name="DownloadPMOData" class="org.will.app.action.PMODataOutputAction" method="downloadPMODataExcel">
+		<result type="stream">		
+			<param name="contentType">application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</param>	
+			<param name="inputName">fis</param>
+			<param name="contentDisposition">attachment;filename=${downDownFileName}</param>
+			<param name="bufferSize">4096</param>
+			
+		</result>
+	</action>
+	
+	<!-- 新增一名映射关系账号 -->
+	<action name="InsertSingleAccount" class="org.will.app.action.InsertAccountAction">
+		<result>/WEB-INF/content/EmployeesList.jsp</result>			
+	</action>
+	
+	<action name=""  class="org.will.app.action.InitialFirstPageAction">
+		<result>/WEB-INF/content/Initial.jsp</result>	
+	</action>
+	<action name="*">
+		<result>/WEB-INF/content/{1}.jsp</result>	
+	</action>
+	</package>
+</struts>
